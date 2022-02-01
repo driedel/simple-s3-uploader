@@ -1,0 +1,31 @@
+{
+  "name": "aws-s3-uploader",
+  "version": "1.0.0",
+  "description": "Simple AWS S3 file uploader.",
+  "main": "./app/process.js",
+  "scripts": {
+    "start": "node ./app/process",
+    "test": "node ./app/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/driedel/aws-s3-uploader.git"
+  },
+  "keywords": [
+    "aws",
+    "s3",
+    "upload",
+    "node"
+  ],
+  "author": "Danilo Riedel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/driedel/aws-s3-uploader/issues"
+  },
+  "homepage": "https://github.com/driedel/aws-s3-uploader#readme",
+  "dependencies": {
+    "async": "^3.2.3",
+    "aws-sdk": "^2.1066.0",
+    "recursive-readdir": "^2.2.2"
+  }
+}
