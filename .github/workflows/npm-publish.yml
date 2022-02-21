@@ -15,8 +15,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-#       - run: npm ci
-      - run: npm test bucket=${{secrets.s3_bucket}} key=${{secrets.s3_key}} secret=${{secrets.s3_secret}} source=${{secrets.local_path}} remote=${{secrets.s3_remote}}
+      # - run: npm test bucket=${{secrets.s3_bucket}} key=${{secrets.s3_key}} secret=${{secrets.s3_secret}} source=${{secrets.local_path}} remote=${{secrets.s3_remote}}
 
   publish-npm:
     needs: build
