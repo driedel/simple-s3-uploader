@@ -24,7 +24,10 @@ class GetParams {
     let message = `\nProcessing error.\nThe following params are required:\n\n`
     
     for (const item in this.argv) {
-      if(this.mandatory.includes(item)) this.mandatory.splice(item, 1)
+      if(this.mandatory.includes(item)) {
+        const i = this.mandatory.indexOf(item)
+        this.mandatory.splice(i, 1)
+      }
     }
 
     if(this.mandatory.length) {
