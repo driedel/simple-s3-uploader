@@ -9,7 +9,7 @@ class AwsS3Uploader {
 
 		this.paths = {
 			source: `${path.resolve(__dirname, this.obj.source)}/`,
-			remote: this.obj.remote
+			remote: this.obj.remote === '/' ? '': this.obj.remote
 		}
 
 		awsUpload(this.obj, this.paths)
