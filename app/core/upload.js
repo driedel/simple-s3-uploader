@@ -3,10 +3,11 @@ const async = require('async')
 const AWS = require('aws-sdk')
 const readdir = require('recursive-readdir')
 const mimeType = require('./mime-type')
+const Preconnect = require('../common/preconnect')
 
 function loadDir(dirPath) {
 	if(!fs.existsSync(dirPath)) {
-		console.log(`\nProcessing error.\nCheck the path to your local directory\n`)
+		console.log(`\nProcessing error.\nCheck your local directory path.\n`)
 		process.exit(1)
 	}
 	
@@ -22,6 +23,8 @@ const awsUpload = async(obj, paths) => {
 
 	try {
 		const files = await loadDir(paths.source)
+
+		await Preconnect(AWS, obj)
 
 		if(!files.length) {
 			console.log(`\nProcessing error.\nYour source directory is empty.\n`)

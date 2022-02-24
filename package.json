@@ -1,8 +1,8 @@
 {
-  "author": "Danilo Riedel <danilo.riedel@gmail.com>",
+  "author": "Danilo Riedel <me@driedel.dev>",
   "name": "aws-s3-uploader",
+  "version": "1.0.3",
   "description": "Simple AWS S3 file uploader.",
-  "version": "1.0.1",
   "license": "ISC",
   "main": "./app/AwsS3Uploader.js",
   "scripts": {
