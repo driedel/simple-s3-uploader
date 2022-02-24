@@ -40,12 +40,14 @@ on:
 jobs:
   npm-publish:
     name: aws-s3-test
-    runs-on: node:16.14.0
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@master
     - name: Set up Node.js
       uses: actions/setup-node@master
+      with:
+        node-version: 16.14.0
     - name: Publish if version has been updated
       uses: houtianze/npm-publish-action@master
       with: # All of theses inputs are optional
