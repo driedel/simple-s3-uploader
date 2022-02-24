@@ -9,7 +9,7 @@ class TestCredentials {
   }
 
   init() {
-    AWS.config.update({region: this.region || 'us-east-1'})
+    AWS.config.update({region: this.obj.region || 'us-east-1'})
     
     this.s3 = new AWS.S3({
       signatureVersion: 'v4',

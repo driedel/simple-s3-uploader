@@ -1,6 +1,6 @@
 {
   "name": "aws-s3-uploader",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Simple AWS S3 file uploader.",
   "main": "./app/process.js",
   "scripts": {
