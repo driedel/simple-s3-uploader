@@ -4,9 +4,8 @@
   "description": "Simple AWS S3 file uploader.",
   "version": "1.0.1",
   "license": "ISC",
-  "main": "./app/process.js",
+  "main": "./app/AwsS3Uploader.js",
   "scripts": {
-    "start": "node ./app/process",
     "test": "node ./app/test"
   },
   "repository": {

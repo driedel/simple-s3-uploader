@@ -25,7 +25,7 @@ const awsUpload = async(obj, paths) => {
 
 		if(!files.length) {
 			console.log(`\nProcessing error.\nYour source directory is empty.\n`)
-		process.exit(1)
+			process.exit(1)
 		}
 
 		return new Promise((resolve, reject) => {

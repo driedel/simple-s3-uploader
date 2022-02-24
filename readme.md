@@ -17,5 +17,5 @@
 To test your connection with AWS the script will list the bucket. For this test all required params need to be filled.
 
 ```
-$ node test bucket="{bucket}" key="{key}" secret="{secret}" remote="{remote}" source="{source}" 
+$ npm test bucket="{bucket}" key="{key}" secret="{secret}" remote="{remote}" source="{source}" 
 ```
