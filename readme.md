@@ -13,7 +13,9 @@
 
 ## Usage
 
-`npm i aws-s3-uploader --save`
+```
+npm i aws-s3-uploader --save
+```
 
 ```
 const AwsS3Uploader = require('aws-s3-uploader')
@@ -76,4 +78,6 @@ AwsS3Uploader(config)
 
 Call your example-file.js from node, or create a script inside package.json and pass all parameters as string.
 
-`node example-file.js bucket="{bucket}" key="{key}" secret="{secret}" remote="{remote}" source="{source}" region="{region}"`
+```
+node example-file.js bucket="{bucket}" key="{key}" secret="{secret}" remote="{remote}" source="{source}" region="{region}"
+```
