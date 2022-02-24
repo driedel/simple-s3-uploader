@@ -23,6 +23,7 @@ const awsUpload = async(obj, paths) => {
 
 	try {
 		const files = await loadDir(paths.source)
+		const uploaded = []
 
 		await Preconnect(AWS, obj)
 
@@ -37,8 +38,6 @@ const awsUpload = async(obj, paths) => {
 				
 				item = file.replace(paths.source, paths.remote)
 
-				console.log(`Uploading file: ${item}`)
-
 				return new Promise((res, rej) => {
 					s3.upload({
 						Key: item,
@@ -49,6 +48,7 @@ const awsUpload = async(obj, paths) => {
 						if (err) {
 							return rej(new Error(err))
 						}
+						uploaded.push(item)
 						res({ result: true })
 					})
 				})
@@ -56,7 +56,7 @@ const awsUpload = async(obj, paths) => {
 				if (err) {
 					return reject(new Error(err))
 				}
-				resolve({ result: true })
+				resolve({ files: uploaded, success: true })
 			})
 		})
 	} catch (err) {

@@ -2,12 +2,11 @@
 * @param {object} args source, remote, bucket, secret, key
 */
 
-
 const path = require('path')
 const awsUpload = require('./core/upload')
 const GetParams = require('./common/get-params')
 
-const AwsS3Uploader = args => {
+const AwsS3Uploader = async(args) => {
 	const obj = new GetParams(args)
 
 	const paths = {
@@ -15,15 +14,15 @@ const AwsS3Uploader = args => {
 		remote: obj.remote
 	}
 
-	awsUpload(obj, paths)
-		.then(() => {
-			console.log('\nDone! All files transfered.')
-			process.exit(0)
-		})
-		.catch((err) => {
-			console.error(err.message)
-			process.exit(1)
-		})
+	return new Promise((resolve, reject) => {
+		awsUpload(obj, paths)
+			.then(data => {
+				if(data.success) {
+					return resolve(data.files)
+				}
+				reject(data)
+			})
+	})
 }
 
 module.exports = AwsS3Uploader
