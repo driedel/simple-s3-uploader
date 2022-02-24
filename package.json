@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/driedel/aws-s3-uploader.git"
+    "url": "git+ssh://git@github.com/driedel/simple-s3-uploader.git"
   },
   "keywords": [
     "aws",
@@ -19,9 +19,9 @@
     "node"
   ],
   "bugs": {
-    "url": "https://github.com/driedel/aws-s3-uploader/issues"
+    "url": "https://github.com/driedel/simple-s3-uploader/issues"
   },
-  "homepage": "https://github.com/driedel/aws-s3-uploader#readme",
+  "homepage": "https://github.com/driedel/simple-s3-uploader#readme",
   "dependencies": {
     "async": "^3.2.3",
     "aws-sdk": "^2.1066.0",
