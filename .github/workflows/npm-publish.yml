@@ -1,32 +1,59 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+# # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# # For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
 
-name: Node.js Package
+# name: Node.js Package
 
+# on:
+#   release:
+#     types: [created]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: 16
+#       - run: mkdir public && touch public/text.txt
+#       - run: npm test bucket=${{secrets.S3_BUCKET}} key=${{secrets.S3_KEY}} secret=${{secrets.S3_SECRET}} source='../public' remote=${{secrets.S3_REMOTE}}
+
+#   publish-npm:
+#     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: 16
+#           registry-url: https://registry.npmjs.org/
+#       - run: npm ci
+#       - run: npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+name: npm-publish
 on:
-  release:
-    types: [created]
-
+  push:
+    branches:
+      - npm-publish
 jobs:
-  build:
+  npm-publish:
+    name: aws-s3-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      # - run: npm test bucket=${{secrets.s3_bucket}} key=${{secrets.s3_key}} secret=${{secrets.s3_secret}} source=${{secrets.local_path}} remote=${{secrets.s3_remote}}
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+    - name: Checkout repository
+      uses: actions/checkout@npm-publish
+    - name: Set up Node.js
+      uses: actions/setup-node@npm-publish
+      with:
+        node-version: 16.14.0
+    - name: Publish if version has been updated
+      uses: houtianze/npm-publish-action@npm-publish
+      with: # All of theses inputs are optional
+        tag_name: "v%s"
+        tag_message: "v%s"
+        commit_pattern: "^(?:Release|Version) (\\S+)"
+      env: # More info about the environment variables in the README
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # You need to set this in your repo settings
