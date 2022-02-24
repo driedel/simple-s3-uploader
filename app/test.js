@@ -5,8 +5,6 @@ class TestCredentials {
   constructor() {
     this.obj = new GetParams(process.argv)
 
-    console.log(this.obj)
-
     this.init()
   }
 
