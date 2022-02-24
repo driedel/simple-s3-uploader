@@ -23,12 +23,13 @@ const awsUpload = async(obj, paths) => {
 
 	try {
 		const files = await loadDir(paths.source)
+		const uploaded = []
 
 		await Preconnect(AWS, obj)
 
 		if(!files.length) {
 			console.log(`\nProcessing error.\nYour source directory is empty.\n`)
-		process.exit(1)
+			process.exit(1)
 		}
 
 		return new Promise((resolve, reject) => {
@@ -36,8 +37,6 @@ const awsUpload = async(obj, paths) => {
 				let item
 				
 				item = file.replace(paths.source, paths.remote)
-
-				console.log(`Uploading file: ${item}`)
 
 				return new Promise((res, rej) => {
 					s3.upload({
@@ -49,6 +48,7 @@ const awsUpload = async(obj, paths) => {
 						if (err) {
 							return rej(new Error(err))
 						}
+						uploaded.push(item)
 						res({ result: true })
 					})
 				})
@@ -56,7 +56,7 @@ const awsUpload = async(obj, paths) => {
 				if (err) {
 					return reject(new Error(err))
 				}
-				resolve({ result: true })
+				resolve({ files: uploaded, success: true })
 			})
 		})
 	} catch (err) {

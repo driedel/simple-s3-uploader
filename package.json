@@ -1,10 +1,11 @@
 {
-  "name": "aws-s3-uploader",
-  "version": "1.0.3",
+  "author": "Danilo Riedel <me@driedel.dev>",
+  "name": "simple-s3-uploader",
+  "version": "1.1.0",
   "description": "Simple AWS S3 file uploader.",
-  "main": "./app/process.js",
+  "license": "ISC",
+  "main": "./app/AwsS3Uploader.js",
   "scripts": {
-    "start": "node ./app/process",
     "test": "node ./app/test"
   },
   "repository": {
@@ -17,8 +18,6 @@
     "upload",
     "node"
   ],
-  "author": "Danilo Riedel",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/driedel/aws-s3-uploader/issues"
   },

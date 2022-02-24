@@ -9,13 +9,17 @@ class GetParams {
   }
 
   process() {
-    this.params.forEach((val, index) => {
-      const prop = val.split('=')[0]
-      const ct = val.split('=')[1]
-    
-      if (!ct || ct === undefined) return;
-      this.argv[prop] = ct
-    })
+    if(Array.isArray(this.params)) {
+      this.params.forEach((val, index) => {
+        const prop = val.split('=')[0]
+        const ct = val.split('=')[1]
+      
+        if (!ct || ct === undefined) return;
+        this.argv[prop] = ct
+      })
+    } else {
+      this.argv = this.params
+    }
 
     this.required()
   }
