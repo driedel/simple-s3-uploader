@@ -7,7 +7,7 @@ const Preconnect = require('../common/preconnect')
 
 function loadDir(dirPath) {
 	if(!fs.existsSync(dirPath)) {
-		console.log(`\nProcessing error.\nCheck the path to your local directory\n`)
+		console.log(`\nProcessing error.\nCheck your local directory path.\n`)
 		process.exit(1)
 	}
 	
