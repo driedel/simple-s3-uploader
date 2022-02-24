@@ -18,7 +18,7 @@ npm i aws-s3-uploader --save
 ```
 
 ```
-const AwsS3Uploader = require('aws-s3-uploader')
+const AwsS3Uploader = require('simple-s3-uploader')
 
 const params = {
   bucket: 'your-s3-bucket',
@@ -52,7 +52,7 @@ Another approach is create a JS file and get all this information from your CI s
 
 ```
 const path = require('path')
-const AwsS3Uploader = require('aws-s3-uploader')
+const AwsS3Uploader = require('simple-s3-uploader')
 
 let argv = {}
 
