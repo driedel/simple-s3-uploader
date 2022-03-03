@@ -1,5 +1,4 @@
-# AWS S3 Uploader
-
+# Simple S3 Uploader
 ## Required params
 
 * **bucket** - Bucket name

@@ -11,7 +11,7 @@ const AwsS3Uploader = async(args) => {
 
 	const paths = {
 		source: `${path.resolve(__dirname, obj.source)}/`,
-		remote: obj.remote
+		remote: obj.remote === '/' ? '': obj.remote
 	}
 
 	return new Promise((resolve, reject) => {
