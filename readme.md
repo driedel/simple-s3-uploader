@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-npm i aws-s3-uploader --save
+npm i simple-s3-uploader --save
 ```
 
 ```
