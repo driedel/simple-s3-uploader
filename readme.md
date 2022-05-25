@@ -17,7 +17,7 @@ npm i simple-s3-uploader --save
 ```
 
 ```
-const AwsS3Uploader = require('simple-s3-uploader')
+const SimpleS3Uploader = require('simple-s3-uploader')
 
 const params = {
   bucket: 'your-s3-bucket',
@@ -28,7 +28,7 @@ const params = {
   region: 'your-s3-bucket-region'
 }
 
-await AwsS3Uploader(params)
+await SimpleS3Uploader(params)
 ```
 
 Returns a **Promisse** with an array of uploaded files.
@@ -51,7 +51,7 @@ Another approach is create a JS file and get all this information from your CI s
 
 ```
 const path = require('path')
-const AwsS3Uploader = require('simple-s3-uploader')
+const SimpleS3Uploader = require('simple-s3-uploader')
 
 let argv = {}
 
@@ -72,7 +72,7 @@ let config = {
   region: argv.region
 }
 
-AwsS3Uploader(config)
+SimpleS3Uploader(config)
 ```
 
 Call your example-file.js from node, or create a script inside package.json and pass all parameters as string.

@@ -25,7 +25,7 @@ class GetParams {
   }
 
   required() {
-    let message = `\nProcessing error.\nThe following params are required:\n\n`
+    let message = `\nThe following params are required:\n\n`
     
     for (const item in this.argv) {
       if(this.mandatory.includes(item)) {
@@ -39,7 +39,7 @@ class GetParams {
         message =`${message}-> ${this.mandatory[i]}\n` 
       }
       
-      throw message
+      throw new Error(message)
     }
   }
 }

@@ -7,7 +7,7 @@ const Preconnect = require('../common/preconnect')
 
 function loadDir(dirPath) {
 	if(!fs.existsSync(dirPath)) {
-		console.log(`\nProcessing error.\nCheck your local directory path.\n`)
+		console.log(`\n\nProcessing error.\nCheck your local directory path.\n`)
 		process.exit(1)
 	}
 	
@@ -28,8 +28,7 @@ const awsUpload = async(obj, paths) => {
 		await Preconnect(AWS, obj)
 
 		if(!files.length) {
-			console.log(`\nProcessing error.\nYour source directory is empty.\n`)
-			process.exit(1)
+			throw new Error(`\nYour source directory is empty.\n`)
 		}
 
 		return new Promise((resolve, reject) => {
@@ -60,7 +59,7 @@ const awsUpload = async(obj, paths) => {
 			})
 		})
 	} catch (err) {
-		throw err
+		throw new Error(err)
 	}
 }
 
