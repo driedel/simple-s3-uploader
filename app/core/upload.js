@@ -43,6 +43,7 @@ const awsUpload = async(obj, paths) => {
 						Bucket: obj.bucket,
 						Body: fs.readFileSync(file),
 						ContentType: mimeType(item),
+						CacheControl: obj.cache || 'max-age=604800'
 					}, (err) => {
 						if (err) {
 							return rej(new Error(err))

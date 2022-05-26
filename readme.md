@@ -9,6 +9,7 @@
 
 ## Optional params
 * **region** - Default: 'us-east-1'
+* **cache** - Default: 'max-age=604800' (7 days)
 
 ## Usage
 
@@ -25,7 +26,8 @@ const params = {
   secret: 'your-secret-access-key',
   remove: 'bucket-folder-path',
   source: 'local-folder-path',
-  region: 'your-s3-bucket-region'
+  region: 'your-s3-bucket-region',
+  cache: 'string-max-age' 
 }
 
 await SimpleS3Uploader(params)
@@ -69,7 +71,8 @@ let config = {
 	key: argv.key,
 	secret: argv.secret,
 	bucket: argv.bucket,
-  region: argv.region
+  region: argv.region,
+  cache: argv.cache
 }
 
 SimpleS3Uploader(config)
@@ -78,5 +81,5 @@ SimpleS3Uploader(config)
 Call your example-file.js from node, or create a script inside package.json and pass all parameters as string.
 
 ```
-node example-file.js bucket="{bucket}" key="{key}" secret="{secret}" remote="{remote}" source="{source}" region="{region}"
+node example-file.js bucket="{bucket}" key="{key}" secret="{secret}" remote="{remote}" source="{source}" region="{region}" cache="{cache}"
 ```
