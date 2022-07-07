@@ -29,4 +29,4 @@ const SimpleS3Uploader = async(args) => {
 	}
 }
 
-module.exports = SimpleS3Uploader()
+module.exports = SimpleS3Uploader

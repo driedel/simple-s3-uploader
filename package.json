@@ -1,7 +1,7 @@
 {
   "author": "Danilo Riedel <me@driedel.dev>",
   "name": "simple-s3-uploader",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Simple AWS S3 file uploader.",
   "license": "ISC",
   "main": "./app/SimpleS3Uploader.js",

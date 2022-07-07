@@ -24,7 +24,7 @@ const params = {
   bucket: 'your-s3-bucket',
   key: 'your-s3-access-key-id',
   secret: 'your-secret-access-key',
-  remove: 'bucket-folder-path',
+  remote: 'bucket-folder-path',
   source: 'local-folder-path',
   region: 'your-s3-bucket-region',
   cache: 'string-max-age' 
